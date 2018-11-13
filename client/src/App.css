@@ -1,0 +1,82 @@
+.App {
+  text-align: center;
+}
+
+.table {
+  text-align: center;
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.selectCandidate {
+  margin-top: 35px;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.selectVoter {
+  margin-top: 25px;
+}
+
+.vote {
+  margin-top: 25px;
+}
+
+.listButton {
+  margin-top: 35px;
+}
+
+input {
+  height: 25px;
+  width: 300px;
+  margin-right: 10px;
+}
+
+.buttonCandidate {
+  height: 30px;
+  width: 120px;
+  color: white;
+  background-color: brown;
+}
+
+.buttonVoter {
+  height: 30px;
+  width: 120px;
+  color: white;
+  background-color: brown;
+}
+
+.buttonVote {
+  height: 30px;
+  width: 120px;
+  color: white;
+  background-color: brown;
+}
+
+select {
+  height: 30px;
+  width: 304px;
+  margin-right: 10px;
+}
+
+button {
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 30px;
+  width: 120px;
+  color: white;
+  background-color: brown;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
