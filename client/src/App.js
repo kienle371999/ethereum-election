@@ -52,7 +52,6 @@ class App extends Component {
         candidatesSelect.append("<option value='" + name + "'>" + name + "</ option>");
       }
 
-      console.log(instance);
       // Set web3, accounts, and contract to the state
       this.setState({ web3, accounts: addresses, contract: instance }, this.notifyEvent);
     } catch (error) {
@@ -88,31 +87,29 @@ class App extends Component {
   // Vote for the candiadate
   handleSubmitVote = async event => {
     event.preventDefault();
-    const { contract } = this.state;
+    const { accounts, contract } = this.state;
     var name = $("#candidatesSelect").val();
-    await contract.methods.vote(name).call();
+    await contract.methods.vote(name).send({ from: accounts[0] });
+    window.location.reload();
   };
   // Start the election
   startVoting = async event => {
     event.preventDefault();
     const { accounts, contract } = this.state;
     await contract.methods.startVoting().send({ from: accounts[0] });
-    alert("Start the Election");
   };
   //Finish the election
   finishVoting = async event => {
     event.preventDefault();
     const { accounts, contract } = this.state;
-    await contract.methods.finishVoting({ from: accounts[0] });
-    alert("Finish the Election");
+    await contract.methods.finishVoting().send({ from: accounts[0] });
   };
   
   //Broadcast the winner
   winning = async event => {
     event.preventDefault();
-    const { contract } = this.state;
-    const winner = await contract.methods.winning().call();
-    alert(winner[0] + " is the winner with " + winner[1] + " ballots");
+    const { accounts, contract } = this.state;
+    await contract.methods.winning().send({ from: accounts[0] });
   };
 
   render() {
